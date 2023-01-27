@@ -1,6 +1,7 @@
+/* Importating font style*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;400;600&display=swap');
 
-
+/*setting up base rules*/
 html{
     font-size: 10px;
     font-family: 'Roboto Mono', monospace;
@@ -28,7 +29,7 @@ label{
     font-size: 1.8rem;
 
 }
-
+/*styling input bar by targeting type number */
 input[type="number"] {
     font-family: inherit;
     background-color: rgb(199, 211, 210);
@@ -51,7 +52,7 @@ button {
     background-color: #0ad9ff;
     margin: 0.5rem 0 1rem 0;
 }
-
+/*Using Flex to display them Horizentally*/
 ul {
     padding: 0;
     display: flex;
