@@ -18,6 +18,23 @@ function addNewEntry(newEntry){
      entryesWrapper.appendChild(listItem);
 
 }
+
+function reducer(total, currentValue){
+     return total + currentValue;
+}
+
+function calcTotal() {
+     const totalValue = Number((entries.reduce(reducer)).toFixed(1));
+     document.getElementById('total').innerText = totalValue; 
+     document.getElementById('progressTotal').innerText = totalValue;
+}
+
+function calcAverage() {
+     const average = Number((entries.reduce(reducer) / entries.length).toFixed(1));
+     document.getElementById('average').innerText = average;
+}
+
+
 /* this Function handels the event and calles for the helper function */
 function handelSubmit(event) {
      event.preventDefault();//this line prevents the default behavior and does not all the page to reload.  
@@ -26,6 +43,8 @@ function handelSubmit(event) {
      document.querySelector('form').reset(); //after getting the value we are reseting the the fild with reset function
      entries.push(entry);//here we are pushing the element in the arra in the beggning
      addNewEntry(entry);//calling the addNewEntry Function 
+     calcTotal();
+     calcAverage();
 }
 
 
