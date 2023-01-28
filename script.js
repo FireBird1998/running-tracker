@@ -1,7 +1,12 @@
+
+const goal = 25;
+
+document.getElementById('target').innerText = goal;
 //array to store thr new entries 
+
 let entries = [];
 
-//targeting the Ul element with if entries and storing in the variable to use later 
+//targeting the Ul element with id entries and storing in the variable to use later 
 const  entryesWrapper = document.querySelector('#entries');
 
 
@@ -34,6 +39,18 @@ function calcAverage() {
      document.getElementById('average').innerText = average;
 }
 
+function weeklyHigh(){
+     const high = Math.max(...entries);//spread operator is represented with ... and it is responsible for spreading the array from [A,b,c] to a,b,c
+     document.getElementById('high').innerText = high;// dom update
+}
+
+function calcGoal(){
+     const totalValue = Number((entries.reduce(reducer)).toFixed(1));
+     const percent = Number(totalValue / (goal / 100));
+     const progressCircle = document.getElementById('progressCircle');
+     if(percent > 100) percent === 100; 
+     progressCircle.style.background = `conic-gradient(#0ad9ff ${percent}%, #141c22 ${percent}% 100%)`; 
+}
 
 /* this Function handels the event and calles for the helper function */
 function handelSubmit(event) {
@@ -45,6 +62,8 @@ function handelSubmit(event) {
      addNewEntry(entry);//calling the addNewEntry Function 
      calcTotal();
      calcAverage();
+     weeklyHigh();
+     calcGoal();
 }
 
 
